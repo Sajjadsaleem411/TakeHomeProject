@@ -1,0 +1,67 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="app.test.takehomeproject.models.AmazonItem"/>
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/unit_2x"
+        android:layout_marginEnd="@dimen/unit_2x"
+        android:layout_marginBottom="@dimen/unit_2x"
+        app:cardElevation="@dimen/unit_1x"
+        app:cardPreventCornerOverlap="false">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivThumbnail"
+                android:layout_width="90dp"
+                android:layout_height="@dimen/unit_10x"
+                android:layout_margin="@dimen/unit_3x"
+                android:contentDescription="@string/item_desc"
+                android:scaleType="centerCrop"
+                app:imageFromUrl="@{item.thumbnail}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/unit_2x"
+                android:text="@{item.name}"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:gravity="start"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivThumbnail"
+                app:layout_constraintTop_toTopOf="@id/ivThumbnail"
+                tools:text="Demo Text"/>
+
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/unit_1x"
+                android:text="@{item.price}"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:gravity="start"
+                android:textColor="@color/purple_200"
+                app:layout_constraintEnd_toEndOf="@id/tvName"
+                app:layout_constraintStart_toStartOf="@id/tvName"
+                app:layout_constraintTop_toBottomOf="@id/tvName"
+                tools:text="Demo Text"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">TakeHomeProject</string>
+    <string name="app_name">Test App</string>
+    <string name="error_loading_data">Error while loading data.</string>
+    <string name="item_desc">Test Desc.</string>
 </resources>
