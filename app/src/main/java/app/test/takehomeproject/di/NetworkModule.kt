@@ -1,6 +1,8 @@
 package app.test.takehomeproject.di
 
+import app.test.takehomeproject.BuildConfig
 import app.test.takehomeproject.BuildConfig.BASE_URL
+import app.test.takehomeproject.IdlingResource
 import app.test.takehomeproject.api.ApiService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -43,7 +45,15 @@ class NetworkModule {
             .addInterceptor(HttpLoggingInterceptor().apply {
                 level = HttpLoggingInterceptor.Level.BODY
             })
-
+        if (BuildConfig.INSTRUMENTATION) {
+            //Add idling resource on Instrumentation builds
+            builder.addInterceptor {
+                IdlingResource.increment()
+                val res = it.proceed(it.request())
+                IdlingResource.decrement()
+                res
+            }
+        }
 
         return builder.build()
     }

@@ -6,12 +6,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import app.test.takehomeproject.models.AmazonItem
+import app.test.takehomeproject.repository.AmazonRepository
 import app.test.takehomeproject.repository.DefaultAmazonRepository
 import app.test.takehomeproject.repository.LoadFailure
 import app.test.takehomeproject.repository.LoadSuccess
 
 class AmazonViewModel @ViewModelInject constructor(
-    private val repository: DefaultAmazonRepository
+    private val repository: AmazonRepository
 ) : ViewModel() {
 
     private var _isLoading: MutableLiveData<Boolean> = MutableLiveData()

@@ -18,6 +18,7 @@
         tools:context=".home.ui.HomeFragment">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAmazon"
             app:setAdapter="@{adapter}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_width="@dimen/match_constraints"
@@ -39,7 +40,7 @@
             app:isVisible="@{viewModel.isLoading}" />
 
         <TextView
-            android:id="@+id/TvErrorTv"
+            android:id="@+id/TvError"
             android:layout_width="match_parent"
             android:layout_height="@dimen/match_constraints"
             android:layout_marginTop="@dimen/unit_2x"

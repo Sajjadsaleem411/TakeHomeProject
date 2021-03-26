@@ -16,7 +16,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/item_name_tv"
+            android:id="@+id/tvItemName"
             android:layout_width="match_parent"
             android:layout_height="@dimen/match_constraints"
             android:textSize="@dimen/text_size_title"
